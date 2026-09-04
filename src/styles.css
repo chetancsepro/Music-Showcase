@@ -1,0 +1,19 @@
+@import "tailwindcss";
+/* Custom vinyl & ambient glow animations */
+.vinyl-spin {
+  animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* YT Music red ambient pulse */
+.yt-glow {
+  box-shadow: 0 0 50px -10px rgba(239, 68, 68, 0.25);
+}
