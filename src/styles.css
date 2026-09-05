@@ -16,4 +16,28 @@
 /* YT Music red ambient pulse */
 .yt-glow {
   box-shadow: 0 0 50px -10px rgba(239, 68, 68, 0.25);
+
+}
+/* Ambient Red Glow for YouTube Music theme */
+.yt-glow {
+  box-shadow: 0 0 40px -5px rgba(239, 68, 68, 0.35);
+}
+
+/* Hover effect to make glow intensify on hover */
+.yt-glow-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.yt-glow-hover:hover {
+  box-shadow: 0 0 50px 5px rgba(239, 68, 68, 0.5);
+}
+
+  /* Converts the emoji to grayscale */
+.grayscale-emoji {
+  filter: grayscale(100%);
+}
+
+/* Inverts colors and shifts the hue */
+.recolor-emoji {
+  filter: hue-rotate(180deg) saturate(200%);
 }
