@@ -41,3 +41,56 @@
 .recolor-emoji {
   filter: hue-rotate(180deg) saturate(200%);
 }
+
+@layer base {
+  /* 1. Prevent bounce scrolling and force proper box model */
+  html {
+    -webkit-tap-highlight-color: transparent; /* Removes blue highlight box on Android/iOS touch */
+    -webkit-text-size-adjust: 100%;           /* Prevents iOS Safari from auto-scaling font size on rotation */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* 2. Full viewport height handling without mobile address bar jumping */
+    min-height: 100vh;
+    min-height: 100dvh; 
+    
+    /* 3. Prevent horizontal scrolling caused by touch gestures */
+    overflow-x: hidden;
+    
+    /* 4. Disable accidental text selecting while tapping buttons */
+    -webkit-user-select: none;
+    user-select: none;
+    
+    /* Standard smooth text rendering for mobile screens */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 5. Allow normal text selection inside input fields, textareas, and body paragraphs */
+  p, span, h1, h2, h3, h4, h5, h6, input, textarea, [contenteditable="true"] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}
+
+@layer utilities {
+  /* 6. Mobile Safe Area Utilities for modern smartphones (iPhone Notch / Android Hole-Punch) */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 16px);
+  }
+  .mb-safe {
+    margin-bottom: env(safe-area-inset-bottom, 16px);
+  }
+  .mt-safe {
+    margin-top: env(safe-area-inset-top, 16px);
+  }
+
+  /* 7. Native-like momentum scrolling for custom scroll containers */
+  .scroll-touch {
+    -webkit-overflow-scrolling: touch;
+  }
+}
